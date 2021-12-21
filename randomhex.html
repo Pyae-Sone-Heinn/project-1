@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Hex Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        background-color: #ff5c5c;
+    }
+    h3{
+        display: inline-block;
+        margin-top: 30px;
+        padding: 15px;
+        box-shadow: 0px 3px 8px rgb(207, 206, 206);
+        border-radius: 5px;
+    }
+    .generate{
+        margin-top: 40px;
+        font-size:  20px;
+    }
+    .copy{
+        font-size: 18px;
+    }
+    input[type="text"]{
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div class="conainer">
+        <div class="row">
+            <!--title-->
+            <div class="col-12 col-md-12 col-lg-12">
+                <h2 class="text-center text-light" style="padding: 20px;margin-top: 30px;">Random Background Hex Color Generator</h2>
+            </div>
+            <!--Hex Code Card-->
+            <div class="col-12 col-md-12 col-lg-12 mx-auto text-center">
+                <h3 class="text-center text-light" >Hex Color : <span>"#ff5c5c"</div></span></h3>
+            </div>
+            <!--Generate Button-->
+            <div class="col-12 col-md-12 col-lg-12 mx-auto text-center">
+                 <button class="btn btn-outline-light Generate">Generate Color</button>
+            </div>
+           <!--input-group-->
+           <div class="col-10 col-md-6 col-lg-8 mx-auto">
+             <div class="input-group">
+               <input type="text" class="form-control" value="#ff5c5c" maxlength="7">
+                 <button class="btn btn-secondary copy">Copy Hex Code</button>
+        </div>
+        </div>
+    </div>
+</body>
+<script>
+    const hexcode = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
+ let hex_key = "#";
+    for(let i = 0 ; i < 6 ; i++){
+     let hex_value = Math.floor(Math.random() * hexcode.length);
+      hex_key = hex_key + hexcode [hex_value];
+    }
+
+    const body = document.querySelector("body");
+    const generate = document.querySelector(".generate");
+    const hex = document.querySelector("#hex");
+
+    generate.addEventListener("click", () => {
+          body.style.backgroundColor = hex_color;
+          hex.innerHTML = hex_color;
+    })
+
+</script>
+</html>
